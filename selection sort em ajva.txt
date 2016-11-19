@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Selectionsort {
+    public static void main(String[] args) {
+        List<String> lista = new ArrayList<String>();
+        lista.add("88 ");
+        lista.add("8 ");
+        lista.add("2 ");
+        System.out.println(selection_sort(lista, lista.size()));
+    }
+
+    public static List<String> selection_sort(List<String> vetor, int tamanho) {
+        int i, j, min;
+        int aux;
+        for (i = 0; i < (tamanho - 1); i++) {
+            min = i;
+            for (j = (i + 1); j < tamanho; j++) {
+                aux = vetor.get(j).compareTo(vetor.get(min));
+                if (aux < 0) {
+                    min = j;
+                }
+            }
+            if (i != min) {
+                String swap = vetor.get(i);
+                vetor.set(i, vetor.get(min));
+                vetor.set(min, swap);
+            }
+        }
+        return vetor;
+    }
+}
